@@ -7,4 +7,6 @@ All the System Usage Logs are tools designed to capture and record key informati
 Another use case would be to understand if a server is coming a little too close to the max memory usage requirement. It can give you a good indicator of when to upgrade a server if the usage is being logged close to maximum capacity.
 
 ## Server Usage Log 1.0
-
+```python
+print(hello)
+```

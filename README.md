@@ -10,3 +10,10 @@ Another use case would be to understand if a server is coming a little too close
 ```python
 print(hello)
 ```
+## Server Usage Log 2.3
+
+```powreshell
+Connect-PnPOnline "yourtenantURL" -Interactive
+Get-PnPTenantAppCatalogUrl
+
+```

@@ -7,7 +7,9 @@ All the System Usage Logs are tools designed to capture and record key informati
 Another use case would be to understand if a server is coming a little too close to the max memory usage requirement. It can give you a good indicator of when to upgrade a server if the usage is being logged close to maximum capacity.
 
 ## Server Usage Log 1.0
-This usage log is written in python and  
+This usage log is written in python and has a few moving parts to get it set up correctly. In order for this log to be used in its full potential, we reccomend the following setup process:
+1. Download Server-Usage-Log-1.0.py
+2. Edit the file path in the code.....
 
 
 ```python
@@ -15,8 +17,8 @@ print(hello)
 ```
 ## Server Usage Log 2.3
 
+
+
 ```powershell
-Connect-PnPOnline "yourtenantURL" -Interactive
-Get-PnPTenantAppCatalogUrl
 
 ```

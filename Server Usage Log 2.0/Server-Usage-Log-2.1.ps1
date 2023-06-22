@@ -48,9 +48,16 @@ if ($csv) {
                 $computerCpuUsage = 100 - $computerIdle
 
                 $computerRam = Invoke-Command -Session $session -ScriptBlock {
-                    Get-WmiObject -Class Win32_OperatingSystem | Select-Object -Property TotalVisibleMemorySize, FreePhysicalMemory
+                    $operatingSystem = Get-WmiObject -Class Win32_OperatingSystem
+                    $totalVisibleMemorySize = $operatingSystem.TotalVisibleMemorySize
+                    $freePhysicalMemory = $operatingSystem.FreePhysicalMemory
+                    $totalRamGB = [math]::Round($totalVisibleMemorySize / 1MB, 2)
+                    $usedRamGB = [math]::Round(($totalVisibleMemorySize - $freePhysicalMemory) / 1MB, 2)
+                    $totalRamGB, $usedRamGB
                 }
-                $ramUsed = ($computerRam.TotalVisibleMemorySize - $computerRam.FreePhysicalMemory) / 1MB
+                $ramTotalGB = $computerRam[0]
+                $ramUsed = $computerRam[1]
+
 
                 $processes = Invoke-Command -Session $session -ScriptBlock {
                     Get-WmiObject -Class Win32_Process | Where-Object { $_.WorkingSetSize / 1MB -gt 200 }
@@ -96,7 +103,7 @@ if ($csv) {
                     Write-Host "CPU Usage (%): $cpuUsage"
                     Write-Host "------------------------------"
 
-                    $userData = "$server, $username, $processName, $cpuUsage%, $ram, $computerCpuUsage%, $ramUsed, $gbMemory"
+                    $userData = "$server, $username, $processName, $cpuUsage%, $ram, $computerCpuUsage%, $ramUsed, $ramTotalGB"
 
                     $userData | Add-Content -Path $logCSV
                     $userData | Add-Content -Path $recentCSV
@@ -104,7 +111,7 @@ if ($csv) {
 
                 Write-Host "`nTotal Computer CPU Usage: $computerCpuUsage%"
                 Write-Host "Total Computer RAM Usage: $ramUsed GB"
-                Write-Host "Total Computer RAM Storage: $gbMemory GB"
+                Write-Host "Total Computer RAM Storage: $ramTotalGB GB"
                 Write-Host ""
 
                 Remove-PSSession -Session $session
@@ -124,7 +131,7 @@ else {
     Write-Host "[!] Could not read CSV file provided, exiting..."
 }
 
-Write-Host
+Write-Host "End of Script"
 
 "" | Add-Content -Path $logCSV
 "" | Add-Content -Path $logCSV

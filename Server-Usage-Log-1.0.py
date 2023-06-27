@@ -2,7 +2,7 @@ import psutil
 import datetime
 
 
-file_path = 'C:/Users/DhruvDatta/Desktop/Task Manager Log.txt'
+file_path = 'Task Manager Log.txt'
 
 t = datetime.datetime.now()
 

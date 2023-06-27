@@ -30,6 +30,6 @@ pyinstaller --onefile --noconsole Server-Usage-Log-1.0.py
 This usage log is written in powershell and is the flagship model of the usage log. Use this Usage Log if you have a multitude of users to manage. I would say you can set this up on an organization with 1 - 1000+ people. 
 
 In order for this powershell script to be setup, we recommend the following setup process: 
-1. create the csv files listed in the Server Usage Log 2.3 setup folder (log.csv, recentlog.csv, servers.csv)
-2. 
+1. Download the csv files listed in the Server Usage Log 2.3 setup folder (log.csv, recentlog.csv, servers.csv)
+2. Download batch file that runs the powershell script. 
 

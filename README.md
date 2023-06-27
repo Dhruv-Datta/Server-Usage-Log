@@ -1,4 +1,4 @@
-# System Usage Log
+# Server Usage Log
 
 This documentation will cover 2 versions of the Server Usage Log, both designed to achieve a different purpose and cater to specific use cases. By providing an overview of each version, we aim to equip users with a comprehensive understanding of the capabilities and functionalities offered by the different iterations of the Usage Log.
 

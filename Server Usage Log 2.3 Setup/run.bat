@@ -1,3 +1,3 @@
-@echo off
-powershell.exe 'C:\Path\to\file\Server-Usage-Log-2.3.ps1'
+@ECHO OFF
+PowerShell.exe -WindowStyle Hidden -Command "C:\Path\to\file\Server-Usage-Log.ps1"
 exit

@@ -6,9 +6,9 @@ Write-Host "| ------ Server Usage Log ------ |"
 Write-Host "+--------------------------------+"
 Write-Host ""
 
-$recentCSV = "C:\Scripts\UpWork\Server-Usage-Log\recentlog.csv"
-$logCSV = "C:\Scripts\UpWork\Server-Usage-Log\log.csv"
-$csvFile = "C:\Scripts\UpWork\Server-Usage-Log\servers.csv"
+$recentCSV = "C:\path\to\file\recentlog.csv"
+$logCSV = "C:\path\to\file\log.csv"
+$csvFile = "C:\path\to\file\servers.csv"
 $csv = Import-Csv $csvFile -UseCulture
 
 Clear-Content -Path $recentCSV

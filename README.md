@@ -38,9 +38,9 @@ In order for this powershell script to be setup, we recommend the following setu
 ```powershell
 # path to recentlog.csv
 $recentCSV = "C:\path\to\file\recentlog.csv"
-#path to log.csv
+# path to log.csv
 $logCSV = "C:\path\to\file\log.csv"
-path to servers.csv
+# path to servers.csv
 $csvFile = "C:\path\to\file\servers.csv"
 ```
 

@@ -27,9 +27,29 @@ pyinstaller --onefile --noconsole Server-Usage-Log-1.0.py
 
 
 ## Server Usage Log 2.3
-This usage log is written in powershell and is the flagship model of the usage log. Use this Usage Log if you have a multitude of users to manage. I would say you can set this up on an organization with 1 - 1000+ people. 
+This usage log is written in powershell and is the flagship model of the usage log. Use this Usage Log if you have a multitude of users to manage. You can set this up on an organization with 1 - 1000+ people. 
 
 In order for this powershell script to be setup, we recommend the following setup process: 
-1. Download the csv files listed in the Server Usage Log 2.3 setup folder (log.csv, recentlog.csv, servers.csv)
-2. Download batch file that runs the powershell script. 
+1. Download powershell script and place in a folder
+2. Download the csv files listed in the Server Usage Log 2.3 setup folder (log.csv, recentlog.csv, servers.csv)
+3. In servers.csv input all your server names in a column
+4. In Server-Usage-Log-2.3.ps1, change the file paths in the code to the csv file paths:
 
+```powershell
+# path to recentlog.csv
+$recentCSV = "C:\path\to\file\recentlog.csv"
+#path to log.csv
+$logCSV = "C:\path\to\file\log.csv"
+path to servers.csv
+$csvFile = "C:\path\to\file\servers.csv"
+```
+
+4. Change path for batch file that runs the powershell script and download it
+   
+```batch
+PowerShell.exe -WindowStyle Hidden -Command "C:\Path\to\file\Server-Usage-Log.ps1"
+```
+
+5. Setup the task scheduler to run the batch file every hour or 2 depending on the quantity of users (the more users, the higher time incriment for task scheduler is recommended)
+
+That should be all the steps for the setup! You can now run your program whenever you would like with the batch file.
